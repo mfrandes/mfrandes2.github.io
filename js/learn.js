@@ -28,7 +28,7 @@ sayWellcome();
 var cursEUR = 4.5;
 var myEUR = 20;
 var myRON = 0;
-var friendEUR = 20;
+var friendEUR = 100;
 var friendRON = 0;
 
 // operatori: * / + -
@@ -36,5 +36,20 @@ var friendRON = 0;
 myRON = myEUR * cursEUR;
 console.info("Eu am " + myRON + " RON");
 
-myRON = friendEUR * cursEUR;
-console.info("Tu am " + friendRON + " RON");
+friendRON = friendEUR * cursEUR - friendEUR * cursEUR * 0.02;
+console.info("Tu ai " + friendRON + " RON");
+
+function extractFromATM(amount) {
+  console.info("==== ==== ==== ====");
+  console.info("suma extrasa este: " + amount);
+  var comision = amount * 0.01;
+  if (comision < 2.5) {
+    comision = 2.5;
+    console.warn("comision minim aplicat");
+  }
+  console.info("comision aplicat: " + comision);
+  console.info("==== ==== ==== ====");
+}
+
+extractFromATM(1000);
+extractFromATM(100);
