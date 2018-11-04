@@ -53,3 +53,39 @@ function extractFromATM(amount) {
 
 extractFromATM(1000);
 extractFromATM(100);
+
+//Extras Bancomat
+
+var fonduri = 1000;
+
+function extractFromATM(amount) {
+  console.info("==== ==== ==== ====");
+  console.info("Fonduri= " + fonduri + " RON");
+
+  var comision = amount * 0.01;
+  var total = amount + comision;
+
+  if (total > fonduri) {
+    console.error("Tranzactie Nereusita: Fonduri insuficiente");
+    console.info("==== ==== ==== ====");
+  }
+  if (total < fonduri) {
+    if (comision > 2.5) {
+      console.info("Suma extrasa este: " + amount + " RON");
+      console.info("Comision aplicat: " + comision + " RON");
+      console.info("Total withdrow: " + total + " RON");
+    }
+
+    if (comision < 2.5) {
+      total = amount + 2.5;
+      console.info("Suma extrasa este: " + amount);
+      comision = 2.5;
+      console.info("Comision aplicat: " + comision);
+      console.warn("comision minim aplicat");
+      console.info("Total withdrow: " + total);
+    }
+    console.info("==== ==== ==== ====");
+  }
+}
+
+extractFromATM(1000);
