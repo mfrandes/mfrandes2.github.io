@@ -64,6 +64,7 @@ function extractFromATM(amount) {
 
   var comision = amount * 0.01;
   var total = amount + comision;
+  var rest = fonduri - total;
 
   if (total > fonduri) {
     console.error("Tranzactie Nereusita: Fonduri insuficiente");
@@ -88,4 +89,6 @@ function extractFromATM(amount) {
   }
 }
 
-extractFromATM(1000);
+extractFromATM(500);
+extractFromATM(10);
+extractFromATM(995);
