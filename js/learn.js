@@ -79,11 +79,11 @@ function extractFromATM(amount) {
 
     if (comision < 2.5) {
       total = amount + 2.5;
-      console.info("Suma extrasa este: " + amount);
+      console.info("Suma extrasa este: " + amount + " RON");
       comision = 2.5;
-      console.info("Comision aplicat: " + comision);
+      console.info("Comision aplicat: " + comision + " RON");
       console.warn("comision minim aplicat");
-      console.info("Total withdrow: " + total);
+      console.info("Total withdrow: " + total + " RON");
     }
     console.info("==== ==== ==== ====");
   }
