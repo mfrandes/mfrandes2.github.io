@@ -1,48 +1,50 @@
-console.info(1);
+function learnVariables() {
+  console.info(1);
 
-function sayWelcome() {
-  console.info("Salut " + prenume + ", bine ai venit la noi!");
+  function sayWelcome() {
+    console.info("Salut " + prenume + ", bine ai venit la noi!");
+  }
+
+  var nume = "Matei";
+  var prenume = "Nicolae";
+  var owner = "Matei's";
+  var msg1 = 'ai zis "Nick"?';
+  var msg2 = 'Nu, am zis "Nicolae"';
+  var template = `Text cu ghilimele " sau simple '`;
+
+  console.debug("auzi...? dar cum te cheama? -" + prenume);
+  sayWelcome();
+
+  var skills = ["html", "css", "js"];
+
+  prenume = "Nick";
+
+  console.info("toate variabilele au fost initializate");
+  console.log(nume);
+  console.debug("cum te cheama? -" + prenume);
+  sayWelcome();
+
+  // schimb valutar
+
+  var cursEUR = 4.5;
+  var myEUR = 20;
+  var myRON = 0;
+  var friendEUR = 100;
+  var friendRON = 0;
+  // operatori * / + -
+
+  myRON = myEUR * cursEUR;
+  console.info("eu am " + myRON + " RON");
+
+  friendRON = friendEUR * cursEUR - (friendEUR * cursEUR * 1) / 100;
+  console.info("tu ai " + friendRON + " RON");
 }
-
-var nume = "Matei";
-var prenume = "Nicolae";
-var owner = "Matei's";
-var msg1 = 'ai zis "Nick"?';
-var msg2 = 'Nu, am zis "Nicolae"';
-var template = `Text cu ghilimele " sau simple '`;
-
-console.debug("auzi...? dar cum te cheama? -" + prenume);
-sayWelcome();
-
-var skills = ["html", "css", "js"];
-
-prenume = "Nick";
-
-console.info("toate variabilele au fost initializate");
-console.log(nume);
-console.debug("cum te cheama? -" + prenume);
-sayWelcome();
-
-// schimb valutar
-
-var cursEUR = 4.5;
-var myEUR = 20;
-var myRON = 0;
-var friendEUR = 100;
-var friendRON = 0;
-// operatori * / + -
-
-myRON = myEUR * cursEUR;
-console.info("eu am " + myRON + " RON");
-
-friendRON = friendEUR * cursEUR - (friendEUR * cursEUR * 1) / 100;
-console.info("tu ai " + friendRON + " RON");
 
 var ATMFunds = 50000;
 var funds = 5000;
 
-function getExtractFee(ammount) {
-  var comision = ammount * 0.01;
+function getExtractFee(amount) {
+  var comision = amount * 0.01;
   if (comision < 2.5) {
     console.warn("comision minim aplicat");
     comision = 2.5;
@@ -50,12 +52,18 @@ function getExtractFee(ammount) {
   return comision;
 }
 
-function extractFromATM(ammount) {
-  console.info("==== ==== ==== ==== ====");
-  console.info("suma extrasa este: " + ammount);
-  var comision = getExtractFee(ammount);
+// TODO implement
 
-  var totalExtract = ammount + comision;
+function checkExtractPermision() {
+  return true;
+}
+
+function extractFromATM(amount) {
+  console.info("==== ==== ==== ==== ====");
+  console.info("suma extrasa este: " + amount);
+  var comision = getExtractFee(amount);
+
+  var totalExtract = amount + comision;
 
   if (totalExtract > funds) {
     console.error("Insuficient Funds");
@@ -67,6 +75,8 @@ function extractFromATM(ammount) {
     return;
   }
   funds = funds - totalExtract;
+
+  ATMFunds -= amount;
   console.info("comision aplicat:" + comision);
   console.info("Sold curent: " + funds);
   console.info("==== ==== ==== ==== ====");
@@ -77,3 +87,4 @@ extractFromATM(100000); // solduri insuficiente
 extractFromATM(3000);
 extractFromATM(3000);
 extractFromATM(100);
+extractFromATM(0); // fix it
