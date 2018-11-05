@@ -1,27 +1,27 @@
-console.info(0);
+console.info(1);
 
-function sayWellcome() {
+function sayWelcome() {
   console.info("Salut " + prenume + ", bine ai venit la noi!");
 }
 
-var nume = "Frandes";
-var prenume = "Mircea";
-var owner = "Mircea's";
-var msg1 = 'ai is "Nick"?';
-var msg2 = 'Nu, am is "Mircea"';
-var template = `text cu ghilimele " dar si cu ghilimele simple'`;
+var nume = "Matei";
+var prenume = "Nicolae";
+var owner = "Matei's";
+var msg1 = 'ai zis "Nick"?';
+var msg2 = 'Nu, am zis "Nicolae"';
+var template = `Text cu ghilimele " sau simple '`;
 
 console.debug("auzi...? dar cum te cheama? -" + prenume);
-sayWellcome();
+sayWelcome();
 
-var skils = ["html", "css", "js"];
+var skills = ["html", "css", "js"];
 
 prenume = "Nick";
 
-console.info("toate variabilele au fost initialiate");
+console.info("toate variabilele au fost initializate");
 console.log(nume);
-console.debug("cum te cheama - " + prenume);
-sayWellcome();
+console.debug("cum te cheama? -" + prenume);
+sayWelcome();
 
 // schimb valutar
 
@@ -30,65 +30,50 @@ var myEUR = 20;
 var myRON = 0;
 var friendEUR = 100;
 var friendRON = 0;
-
-// operatori: * / + -
+// operatori * / + -
 
 myRON = myEUR * cursEUR;
-console.info("Eu am " + myRON + " RON");
+console.info("eu am " + myRON + " RON");
 
-friendRON = friendEUR * cursEUR - friendEUR * cursEUR * 0.02;
-console.info("Tu ai " + friendRON + " RON");
+friendRON = friendEUR * cursEUR - (friendEUR * cursEUR * 1) / 100;
+console.info("tu ai " + friendRON + " RON");
 
-function extractFromATM(amount) {
-  console.info("==== ==== ==== ====");
-  console.info("suma extrasa este: " + amount);
-  var comision = amount * 0.01;
+var ATMFunds = 50000;
+var funds = 5000;
+
+function getExtractFee(ammount) {
+  var comision = ammount * 0.01;
   if (comision < 2.5) {
-    comision = 2.5;
     console.warn("comision minim aplicat");
+    comision = 2.5;
   }
-  console.info("comision aplicat: " + comision);
-  console.info("==== ==== ==== ====");
+  return comision;
 }
 
-extractFromATM(1000);
+function extractFromATM(ammount) {
+  console.info("==== ==== ==== ==== ====");
+  console.info("suma extrasa este: " + ammount);
+  var comision = getExtractFee(ammount);
+
+  var totalExtract = ammount + comision;
+
+  if (totalExtract > funds) {
+    console.error("Insuficient Funds");
+    return 0;
+  }
+
+  if (totalExtract > ATMFunds) {
+    console.error("ATM insuficient funds");
+    return;
+  }
+  funds = funds - totalExtract;
+  console.info("comision aplicat:" + comision);
+  console.info("Sold curent: " + funds);
+  console.info("==== ==== ==== ==== ====");
+}
+
+extractFromATM(1005); // nu w multiplu de 10
+extractFromATM(100000); // solduri insuficiente
+extractFromATM(3000);
+extractFromATM(3000);
 extractFromATM(100);
-
-//Extras Bancomat
-
-var fonduri = 1000;
-
-function extractFromATM(amount) {
-  console.info("==== ==== ==== ====");
-  console.info("Fonduri= " + fonduri + " RON");
-
-  var comision = amount * 0.01;
-  var total = amount + comision;
-  var rest = fonduri - total;
-
-  if (total > fonduri) {
-    console.error("Tranzactie Nereusita: Fonduri insuficiente");
-    console.info("==== ==== ==== ====");
-  }
-  if (total < fonduri) {
-    if (comision > 2.5) {
-      console.info("Suma extrasa este: " + amount + " RON");
-      console.info("Comision aplicat: " + comision + " RON");
-      console.info("Total withdrow: " + total + " RON");
-    }
-
-    if (comision < 2.5) {
-      total = amount + 2.5;
-      console.info("Suma extrasa este: " + amount + " RON");
-      comision = 2.5;
-      console.info("Comision aplicat: " + comision + " RON");
-      console.warn("comision minim aplicat");
-      console.info("Total withdrow: " + total + " RON");
-    }
-    console.info("==== ==== ==== ====");
-  }
-}
-
-extractFromATM(500);
-extractFromATM(10);
-extractFromATM(995);
