@@ -1,5 +1,5 @@
 function learnVariables() {
-  console.info(1);
+  console.info(0);
 
   function sayWelcome() {
     console.info("Salut " + prenume + ", bine ai venit la noi!");
@@ -31,6 +31,7 @@ function learnVariables() {
   var myRON = 0;
   var friendEUR = 100;
   var friendRON = 0;
+
   // operatori * / + -
 
   myRON = myEUR * cursEUR;
@@ -39,6 +40,41 @@ function learnVariables() {
   friendRON = friendEUR * cursEUR - (friendEUR * cursEUR * 1) / 100;
   console.info("tu ai " + friendRON + " RON");
 }
+//Learn Iterators
+function larnIterators() {
+  function countTo(n) {
+    console.info("sa numaram pana la " + n);
+    // for(init; condition; after);
+    for (var i = 1; i <= n; i++) {
+      console.info(i);
+    }
+    var i = 1;
+    for (; i <= n; ) {
+      console.info(i);
+      i++;
+    }
+  }
+
+  function countDown(n) {
+    var i = n;
+    for (; i > 0; ) {
+      console.info(i);
+      i--;
+    }
+    //var i = n; ~nu mai e nevoie ~
+    while (n > 0) {
+      console.info(n);
+      n--;
+    }
+  }
+
+  countTo(10);
+  countDown(10);
+}
+
+larnIterators();
+
+//Learn variables
 
 var ATMFunds = 50000;
 var funds = 5000;
@@ -75,16 +111,15 @@ function extractFromATM(amount) {
     return;
   }
   funds = funds - totalExtract;
-
   ATMFunds -= amount;
   console.info("comision aplicat:" + comision);
   console.info("Sold curent: " + funds);
   console.info("==== ==== ==== ==== ====");
 }
 
-extractFromATM(1005); // nu w multiplu de 10
-extractFromATM(100000); // solduri insuficiente
-extractFromATM(3000);
-extractFromATM(3000);
-extractFromATM(100);
-extractFromATM(0); // fix it
+// extractFromATM(1005); // nu w multiplu de 10
+// extractFromATM(100000); // solduri insuficiente
+// extractFromATM(3000);
+// extractFromATM(3000);
+// extractFromATM(100);
+// extractFromATM(0); // fix it
