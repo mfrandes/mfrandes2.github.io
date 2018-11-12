@@ -41,7 +41,8 @@ function learnVariables() {
   console.info("tu ai " + friendRON + " RON");
 }
 //Learn Iterators
-function larnIterators() {
+
+/*function larnIterators() {
   function countTo(n) {
     console.info("sa numaram pana la " + n);
     // for(init; condition; after);
@@ -72,7 +73,7 @@ function larnIterators() {
   countDown(10);
 }
 
-larnIterators();
+larnIterators();*/
 
 //Learn variables
 
